@@ -1,0 +1,114 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4dbdb;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: auto;
+        background: #f8ebeb;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .category-title {
+        margin-top: 30px;
+        font-size: 22px;
+        font-weight: bold;
+        border-left: 6px solid #f92c96;
+        padding-left: 10px;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fafafa;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .item-info {
+        width: 60%;
+    }
+
+    .item img {
+        width: 55px;
+        height: 55px;
+        border-radius: 6px;
+    }
+
+    input[type="number"] {
+        width: 60px;
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    .price {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .total-box {
+        margin-top: 25px;
+        padding: 15px;
+        background: #fda0d1;
+        border: 1px solid #f92c96;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button {
+        background: #f92c96;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    button:hover {
+        background: #45a049;
+        cursor: pointer;
+    }
+
+</style>
+
+<script>
+    function hitungTotal() {
+        let harga = document.querySelectorAll(".harga");
+        let qty = document.querySelectorAll(".qty");
+        let total = 0;
+
+        for (let i = 0; i < harga.length; i++) {
+            total += parseInt(harga[i].value) * parseInt(qty[i].value || 0);
+        }
+
+        document.getElementById("totalharga").innerText = total.toLocaleString();
+    }
+
+    function resetForm() {
+        document.querySelectorAll(".qty").forEach(e => e.value = 0);
+        hitungTotal();
+    }
+</script>
+
+</head>
+<body>
